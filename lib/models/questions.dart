@@ -5,8 +5,8 @@ class Question {
 
   Question(
       {required this.id,
-      required this.question,
       required this.answer,
+      required this.question,
       required this.options});
 }
 
@@ -14,7 +14,8 @@ class Question {
 const List sample_data = [
   {
     "id": 1,
-    "question": "test question",
+    "question":
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     "options": ['answer1', 'answer2', 'answer3', 'answer4'],
     "answer_index": 1,
   },

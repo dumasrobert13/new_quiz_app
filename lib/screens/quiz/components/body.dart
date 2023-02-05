@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:new_quiz_app/controllers/question_controller.dart';
 import 'package:new_quiz_app/screens/quiz/components/question_card.dart';
 import 'progress_bar.dart';
 
@@ -11,6 +13,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    QuestionController _questionController = Get.put(QuestionController());
     return Stack(
       children: [
         //background
@@ -22,17 +25,20 @@ class Body extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
+        //content
         SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            //content
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ProgressBar(),
-                SizedBox(height: 20),
-                //top text
-                Text.rich(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: ProgressBar(),
+              ),
+              SizedBox(height: 20),
+              //top text
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text.rich(
                   TextSpan(
                     text: 'Question 1',
                     style: TextStyle(
@@ -40,16 +46,19 @@ class Body extends StatelessWidget {
                     ),
                   ),
                 ),
-                Divider(thickness: 1.5),
-                SizedBox(height: 20),
-                //card
-                Expanded(
-                  child: PageView.builder(
-                    itemBuilder: (context, index) => QuestionCard(),
+              ),
+              Divider(thickness: 1.5),
+              SizedBox(height: 20),
+              //card
+              Expanded(
+                child: PageView.builder(
+                  itemCount: _questionController.questions.length,
+                  itemBuilder: (context, index) => QuestionCard(
+                    question: _questionController.questions[index],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ],
