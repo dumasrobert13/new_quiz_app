@@ -14,27 +14,26 @@ class Question {
 const List sample_data = [
   {
     "id": 1,
-    "question":
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    "options": ['answer1', 'answer2', 'answer3', 'answer4'],
-    "answer_index": 1,
+    "question": "Balong  malalim, puno ng patalim",
+    "options": ['bibig', 'answer2', 'answer3', 'answer4'],
+    "answer_index": 0,
   },
   {
     "id": 2,
-    "question": "test question",
-    "options": ['answer1', 'answer2', 'answer3', 'answer4'],
+    "question": "Isang kulisap, Kikislap-kislap",
+    "options": ['answer1', 'Alitaptap', 'answer3', 'answer4'],
     "answer_index": 2,
   },
   {
     "id": 3,
-    "question": "test question",
-    "options": ['answer1', 'answer2', 'answer3', 'answer4'],
+    "question": "Matapat kong alipin, sunud-sunuran sa akin",
+    "options": ['answer1', 'Anino', 'answer3', 'answer4'],
     "answer_index": 2,
   },
   {
     "id": 4,
-    "question": "test question",
-    "options": ['answer1', 'answer2', 'answer3', 'answer4'],
+    "question": "Mataas kung naka-upo, mababa kung nakatayo",
+    "options": ['answer1', 'Aso', 'answer3', 'answer4'],
     "answer_index": 2,
   },
 ];

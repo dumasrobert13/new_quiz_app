@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:new_quiz_app/controllers/question_controller.dart';
 import 'package:new_quiz_app/models/questions.dart';
 import 'package:new_quiz_app/screens/quiz/components/option.dart';
 
@@ -14,6 +16,7 @@ class QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    QuestionController _controller = Get.put(QuestionController());
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20),
       padding: EdgeInsets.all(20),
@@ -34,7 +37,7 @@ class QuestionCard extends StatelessWidget {
             (index) => Option(
               text: question.options[index],
               index: index,
-              press: () {},
+              press: () => _controller.checkAns(question, index),
             ),
           )
         ],
