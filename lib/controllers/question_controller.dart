@@ -49,9 +49,17 @@ class QuestionController extends GetxController
       ..addListener(() {
         update();
       });
+    //start of animation
     _animationController.forward();
     _pageController = PageController();
     super.onInit();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+    _animationController.dispose();
+    _pageController.dispose();
   }
 
   //this will run if user choose an answer
@@ -86,5 +94,9 @@ class QuestionController extends GetxController
       // then start again
       _animationController.forward();
     }
+  }
+
+  void updateTheQnNum(int index) {
+    _questionNumber.value = index + 1;
   }
 }

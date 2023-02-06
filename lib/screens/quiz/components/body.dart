@@ -37,16 +37,27 @@ class Body extends StatelessWidget {
               SizedBox(height: 20),
               //top text
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Text.rich(
-                  TextSpan(
-                    text: 'Question 1',
-                    style: TextStyle(
-                      fontSize: 24,
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Obx(
+                    //display of question number at the top
+                    () => Text.rich(
+                      TextSpan(
+                        text:
+                            "Question ${_questionController.questionNumber.value}",
+                        style: TextStyle(
+                          fontSize: 24,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: "/${_questionController.questions.length}",
+                            style: TextStyle(
+                              fontSize: 24,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ),
-              ),
+                  )),
               Divider(thickness: 1.5),
               SizedBox(height: 20),
               //card
@@ -55,6 +66,7 @@ class Body extends StatelessWidget {
                   //user can't scroll to the next page
                   physics: NeverScrollableScrollPhysics(),
                   controller: _questionController.pageController,
+                  onPageChanged: _questionController.updateTheQnNum,
                   itemCount: _questionController.questions.length,
                   itemBuilder: (context, index) => QuestionCard(
                     question: _questionController.questions[index],
