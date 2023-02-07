@@ -1,3 +1,4 @@
+
 class Question {
   final int id, answer;
   final String question;
@@ -10,8 +11,9 @@ class Question {
       required this.options});
 }
 
-// ignore: constant_identifier_names
-const List sample_data = [
+
+// ignore: non_constant_identifier_names
+List sample_data = [
   {
     "id": 1,
     "question": "Balong  malalim, puno ng patalim",
@@ -61,3 +63,4 @@ const List sample_data = [
     "answer_index": 1,
   },
 ];
+

@@ -13,6 +13,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
     QuestionController _questionController = Get.put(QuestionController());
     return Stack(
       children: [

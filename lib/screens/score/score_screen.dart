@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_quiz_app/controllers/question_controller.dart';
@@ -8,6 +10,7 @@ class ScoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
     QuestionController _qnController = Get.put(QuestionController());
     return Scaffold(
       body: Stack(
@@ -33,24 +36,20 @@ class ScoreScreen extends StatelessWidget {
               ),
               Spacer(),
               Text(
-                "${_qnController.correctAns}/${_qnController.questions.length}",
+                "${_qnController.numOfCorrectAns}/${_qnController.questions.length}",
                 style: TextStyle(
                   fontWeight: FontWeight.w800,
                   fontSize: 40,
                 ),
               ),
               Spacer(),
-              GestureDetector(
-                onTap: () => Get.to(() => WelcomeScreen()),
-                child: Container(
-                  child: Text(
-                    "Play Again",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                    ),
-                  ),
+              FloatingActionButton.extended(
+                onPressed: () => Get.to(() => WelcomeScreen()),
+                label: Text(
+                  "Play Again",
+                  style: TextStyle(color: Colors.white),
                 ),
+                backgroundColor: Color(0xff395B64),
               ),
               Spacer(),
             ],
