@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:new_quiz_app/screens/quiz/quiz_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -48,7 +50,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 Spacer(),
                 InkWell(
-                  onTap: () {},
+                  onTap: () => Get.to(() => QuizScreen()),
                   child: Container(
                     width: double.infinity,
                     alignment: Alignment.center,

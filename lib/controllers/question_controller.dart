@@ -4,6 +4,7 @@ import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:new_quiz_app/models/questions.dart';
+import 'package:new_quiz_app/screens/score/score_screen.dart';
 
 class QuestionController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -29,8 +30,8 @@ class QuestionController extends GetxController
   bool _isAnswered = false;
   bool get isAnswered => this._isAnswered;
 
-  late int _correctAns;
-  int get correctAns => this._correctAns;
+  int? _correctAns;
+  int? get correctAns => _correctAns ?? 0;
 
   late int _selectedAns;
   int get selectedAns => this._selectedAns;
@@ -93,9 +94,12 @@ class QuestionController extends GetxController
       _animationController.reset();
       // then start again
       _animationController.forward();
+    } else {
+      Get.to(() => ScoreScreen());
     }
   }
 
+  //this will update the question number
   void updateTheQnNum(int index) {
     _questionNumber.value = index + 1;
   }
