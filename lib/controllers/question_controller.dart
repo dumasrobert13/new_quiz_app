@@ -59,7 +59,7 @@ class QuestionController extends GetxController
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
           // Animation is completed, navigate to Score Screen
-          Get.to(ScoreScreen());
+          Get.to(() => ScoreScreen());
         }
       });
     //start of animation
