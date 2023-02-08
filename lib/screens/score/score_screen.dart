@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_quiz_app/controllers/question_controller.dart';
-import 'package:new_quiz_app/screens/quiz/quiz_screen.dart';
+import 'package:new_quiz_app/screens/welcome_screen.dart';
 
 class ScoreScreen extends StatelessWidget {
   const ScoreScreen({super.key});
@@ -45,10 +45,10 @@ class ScoreScreen extends StatelessWidget {
               Spacer(),
               FloatingActionButton.extended(
                 onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => QuizScreen()),
-                  );
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => WelcomeScreen()),
+                      (Route<dynamic> route) => false);
                 },
                 label: Text(
                   "Play Again",

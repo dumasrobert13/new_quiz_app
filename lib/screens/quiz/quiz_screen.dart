@@ -6,20 +6,13 @@ class QuizScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        actions: [
-          TextButton(
-            onPressed: () {},
-            child: const Text('Skip'),
-          ),
-        ],
+        automaticallyImplyLeading: false,
       ),
       // ignore: prefer_const_constructors
       body: Body(),
     );
   }
 }
-
