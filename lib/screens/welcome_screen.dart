@@ -50,7 +50,14 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 Spacer(),
                 InkWell(
-                  onTap: () => Get.to(() => QuizScreen()),
+                  onTap: () {
+                    Get.snackbar('Welcome', 'Enjoy the game',
+                        duration: Duration(seconds: 2),
+                        snackPosition: SnackPosition.BOTTOM);
+                    Future.delayed(Duration(milliseconds: 2500), () {
+                      Get.to(() => QuizScreen());
+                    });
+                  },
                   child: Container(
                     width: double.infinity,
                     alignment: Alignment.center,

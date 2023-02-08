@@ -26,28 +26,41 @@ class QuestionController extends GetxController
 
   List<Question> get questions => _questions;
 
+  //bool to tell if user chose an answer
   bool _isAnswered = false;
   bool get isAnswered => _isAnswered;
 
+  //int for telling the correct answer in the question
   late int _correctAns;
   int get correctAns => _correctAns;
 
+  //int for storing the answer of the user
   late int _selectedAns;
   int get selectedAns => _selectedAns;
 
+  //int for telling the current number of the question
   final RxInt _questionNumber = 1.obs;
   RxInt get questionNumber => _questionNumber;
 
+  //this will be the score of the user
   late int _numOfCorrectAns = 0;
   int get numOfCorrectAns => _numOfCorrectAns;
 
+  //when this whole widget is called, this will run
   @override
   void onInit() {
     _animationController =
-        AnimationController(duration: Duration(seconds: 20), vsync: this);
+        AnimationController(duration: Duration(seconds: 10), vsync: this);
     _animation = Tween<double>(begin: 0, end: 1).animate(_animationController)
       ..addListener(() {
         update();
+      })
+      //if the timer ends, it will end the game
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          // Animation is completed, navigate to Score Screen
+          Get.to(ScoreScreen());
+        }
       });
     //start of animation
     _animationController.forward();
@@ -76,16 +89,19 @@ class QuestionController extends GetxController
 
     //it will go to the next page once answered
     Future.delayed(
-      Duration(seconds: 1),
+      Duration(milliseconds: 250),
       () {
         nextQuestion();
       },
     );
   }
 
+  //this will turn to next page
   void nextQuestion() {
     if (_questionNumber.value != _questions.length) {
+      //will reset the bool to tell if user chose an answer
       _isAnswered = false;
+      //animation for page turn
       _pageController.nextPage(
           duration: Duration(milliseconds: 250), curve: Curves.ease);
 

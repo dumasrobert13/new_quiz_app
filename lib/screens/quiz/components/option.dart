@@ -21,6 +21,7 @@ class Option extends StatelessWidget {
     return GetBuilder<QuestionController>(
         init: QuestionController(),
         builder: (qnController) {
+          //green and red color for answers
           Color getTheRightColor() {
             if (qnController.isAnswered) {
               if (index == qnController.correctAns) {
@@ -32,7 +33,7 @@ class Option extends StatelessWidget {
             }
             return Colors.grey;
           }
-
+          //icon for right and wrong answer
           IconData getTheRightIcon() {
             return getTheRightColor() == Colors.red ? Icons.close : Icons.done;
           }
