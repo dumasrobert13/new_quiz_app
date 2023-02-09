@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:new_quiz_app/models/questions.dart';
@@ -14,6 +16,7 @@ class QuestionController extends GetxController
   late PageController _pageController;
   PageController get pageController => _pageController;
 
+  //this code will map the items in the questions and shuffled it
   final List<Question> _questions = sample_data
       .map(
         (question) => Question(
@@ -22,7 +25,8 @@ class QuestionController extends GetxController
             options: question['options'],
             answer: question['answer_index']),
       )
-      .toList();
+      .toList()
+    ..shuffle(Random.secure());
 
   List<Question> get questions => _questions;
 
