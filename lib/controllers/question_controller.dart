@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_quiz_app/models/questions.dart';
 import 'package:new_quiz_app/screens/score/score_screen.dart';
@@ -84,21 +84,32 @@ class QuestionController extends GetxController
     _isAnswered = true;
     _correctAns = question.answer;
     _selectedAns = selectedIndex;
-
-    if (_correctAns == _selectedAns) _numOfCorrectAns++;
-
+    //if the answer is correct, it will increment the score, if wrong it will end the game
+    if (_correctAns == _selectedAns) {
+      _numOfCorrectAns++;
+    }
     //this will stop the counter
     _animationController.stop();
     update();
-
     //it will go to the next page once answered
-    Future.delayed(
-      Duration(milliseconds: 250),
-      () {
-        nextQuestion();
-      },
-    );
+    if (_correctAns == _selectedAns) {
+      Future.delayed(
+        Duration(milliseconds: 500),
+        () {
+          nextQuestion();
+        },
+      );
+    } else {
+      Future.delayed(
+        Duration(milliseconds: 500),
+        () {
+          Get.to(() => ScoreScreen());
+        },
+      );
+    }
   }
+
+  //testing
 
   //this will turn to next page
   void nextQuestion() {
