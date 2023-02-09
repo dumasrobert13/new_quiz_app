@@ -33,6 +33,7 @@ class Option extends StatelessWidget {
             }
             return Colors.grey;
           }
+
           //icon for right and wrong answer
           IconData getTheRightIcon() {
             return getTheRightColor() == Colors.red ? Icons.close : Icons.done;
@@ -52,7 +53,7 @@ class Option extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "${index + 1} $text",
+                    text,
                     style: TextStyle(color: getTheRightColor(), fontSize: 18),
                   ),
                   Container(

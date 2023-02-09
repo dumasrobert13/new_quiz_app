@@ -1,4 +1,3 @@
-
 class Question {
   final int id, answer;
   final String question;
@@ -11,56 +10,66 @@ class Question {
       required this.options});
 }
 
-
 // ignore: non_constant_identifier_names
 List sample_data = [
   {
     "id": 1,
     "question": "Balong  malalim, puno ng patalim",
-    "options": ['bibig', 'answer2', 'answer3', 'answer4'],
+    "options": ['Bibig', 'Tenga', 'Kanal', 'Ilong'],
     "answer_index": 0,
   },
   {
     "id": 2,
     "question": "Isang kulisap, Kikislap-kislap",
-    "options": ['answer1', 'answert2', 'Alitaptap', 'answer4'],
+    "options": ['Bumbilya', 'Bubuyog', 'Alitaptap', 'Bituin'],
     "answer_index": 2,
   },
   {
     "id": 3,
     "question": "Matapat kong alipin, sunud-sunuran sa akin",
-    "options": ['answer1', 'answer2', 'Anino', 'answer4'],
+    "options": ['Bata', 'Aso', 'Anino', 'Pusa'],
     "answer_index": 2,
   },
   {
     "id": 4,
     "question": "Mataas kung naka-upo, mababa kung nakatayo",
-    "options": ['answer1', 'answer2', 'Aso', 'answer4'],
+    "options": ['Baboy', 'Ibon', 'Aso', 'Palaka'],
     "answer_index": 2,
   },
   {
     "id": 5,
-    "question": "hayan na, hayan na! hindi mo pa makita!",
-    "options": ['lupa', 'hangin', 'usok', 'tubig'],
+    "question": "Hayan na, hayan na! hindi mo pa makita!",
+    "options": ['Lupa', 'Hangin', 'Usok', 'Tubig'],
     "answer_index": 1,
   },
   {
     "id": 6,
     "question": "Bata pa si Nene, marunong nang manahi",
-    "options": ['bubuyog', 'langgam', 'tipaklong', 'gagamba'],
+    "options": ['Bubuyog', 'Langgam', 'Tipaklong', 'Gagamba'],
     "answer_index": 3,
   },
   {
     "id": 7,
     "question": "Dalawang bolang magaling, malayo ang nararating.",
-    "options": ['mata', 'kamay', 'ilong', 'paa'],
+    "options": ['Mata', 'Kamay', 'Ilong', 'Paa'],
     "answer_index": 0,
   },
   {
     "id": 8,
     "question": "Hindi hari, hindi pari pero ang damit ay sari-sari.",
-    "options": ['palanggana', 'sampayan', 'kabinet', 'washing machine'],
+    "options": ['Palanggana', 'Sampayan', 'Kabinet', 'Washing Machine'],
     "answer_index": 1,
   },
+  {
+    "id": 9,
+    "question": "Sa malayo ay bata, sa malapit ay matanda.",
+    "options": ['Pilay', 'Bulag', 'Unano', 'Bingi'],
+    "answer_index": 2,
+  },
+  {
+    "id": 10,
+    "question": "May katawan walang mukha, walang mukha'y lumuluha.",
+    "options": ['Kutsara', 'Tinidor', 'Sandok', 'Kandila'],
+    "answer_index": 3,
+  },
 ];
-
