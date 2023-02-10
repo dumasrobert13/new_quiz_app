@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors
-
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_quiz_app/screens/quiz/quiz_screen.dart';
@@ -30,14 +30,27 @@ class WelcomeScreen extends StatelessWidget {
               children: [
                 Spacer(flex: 2),
                 Text(
-                  'Lets Play',
-                  style: TextStyle(
+                  'Riddle Rush',
+                  style: GoogleFonts.bungeeSpice(
+                    shadows: const <Shadow>[
+                      Shadow(
+                        offset: Offset(1.0, 1.0),
+                        blurRadius: 3.0,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                      ),
+                      Shadow(
+                        offset: Offset(1.0, 1.0),
+                        blurRadius: 8.0,
+                        color: Color.fromARGB(125, 0, 0, 255),
+                      ),
+                    ],
                     fontWeight: FontWeight.bold,
-                    fontSize: 24,
+                    fontSize: 50,
                   ),
                 ),
-                Text('Enter your name below'),
                 Spacer(),
+                Text('Enter your name below'),
+                SizedBox(height: 10),
                 TextField(
                   decoration: InputDecoration(
                     filled: true,
@@ -52,9 +65,9 @@ class WelcomeScreen extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     Get.snackbar('Welcome', 'Enjoy the game',
-                        duration: Duration(seconds: 2),
+                        duration: Duration(seconds: 1),
                         snackPosition: SnackPosition.BOTTOM);
-                    Future.delayed(Duration(milliseconds: 2500), () {
+                    Future.delayed(Duration(milliseconds: 1500), () {
                       Get.to(() => QuizScreen());
                     });
                   },
@@ -66,7 +79,12 @@ class WelcomeScreen extends StatelessWidget {
                       color: Color(0xff395B64),
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                     ),
-                    child: Text('Let\'s start'),
+                    child: Text(
+                      'Let\'s start',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
                 Spacer(flex: 2),

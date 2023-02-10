@@ -16,7 +16,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Quiz App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
+      theme: ThemeData(
+        fontFamily: 'Raleway',
+      ),
       home: WelcomeScreen(),
     );
   }

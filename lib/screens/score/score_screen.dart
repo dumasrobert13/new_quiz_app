@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:new_quiz_app/controllers/question_controller.dart';
 import 'package:new_quiz_app/screens/welcome_screen.dart';
 
@@ -29,7 +30,7 @@ class ScoreScreen extends StatelessWidget {
               Spacer(),
               Text(
                 "Score",
-                style: TextStyle(
+                style: GoogleFonts.bungeeSpice(
                   fontWeight: FontWeight.bold,
                   fontSize: 40,
                 ),
