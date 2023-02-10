@@ -2,6 +2,7 @@
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:new_quiz_app/controllers/name_controller.dart';
 import 'package:new_quiz_app/screens/quiz/quiz_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -9,6 +10,7 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    NameController inputController = Get.put(NameController());
     return Scaffold(
       body: Stack(
         children: [
@@ -60,11 +62,14 @@ class WelcomeScreen extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                     ),
                   ),
+                  //this will run the code in question controller file to change the name
+                  onChanged: inputController.updateName,
                 ),
                 Spacer(),
                 InkWell(
                   onTap: () {
-                    Get.snackbar('Welcome', 'Enjoy the game',
+                    Get.snackbar(
+                        'Welcome ${inputController.nickName}', 'Enjoy the game',
                         duration: Duration(seconds: 1),
                         snackPosition: SnackPosition.BOTTOM);
                     Future.delayed(Duration(milliseconds: 1500), () {

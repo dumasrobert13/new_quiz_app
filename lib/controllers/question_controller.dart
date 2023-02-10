@@ -4,8 +4,11 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:new_quiz_app/controllers/name_controller.dart';
 import 'package:new_quiz_app/models/questions.dart';
 import 'package:new_quiz_app/screens/score/score_screen.dart';
+
+NameController get _addscore => Get.put(NameController());
 
 class QuestionController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -47,8 +50,8 @@ class QuestionController extends GetxController
   RxInt get questionNumber => _questionNumber;
 
   //this will be the score of the user
-  late int _numOfCorrectAns = 0;
-  int get numOfCorrectAns => _numOfCorrectAns;
+  // late int _numOfCorrectAns = 0;
+  // int get numOfCorrectAns => _numOfCorrectAns;
 
   //when this whole widget is called, this will run
   @override
@@ -86,7 +89,8 @@ class QuestionController extends GetxController
     _selectedAns = selectedIndex;
     //if the answer is correct, it will increment the score, if wrong it will end the game
     if (_correctAns == _selectedAns) {
-      _numOfCorrectAns++;
+      _addscore.updateScore();
+      // _numOfCorrectAns++;
     }
     //this will stop the counter
     _animationController.stop();
